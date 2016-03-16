@@ -16,6 +16,6 @@ ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # Install requirements for Python 3
-RUN bash -c "source activate python3 && pip install -r requirements.txt"
+# RUN bash -c "source activate python3 && pip install -r requirements.txt"
 
 USER jovyan
