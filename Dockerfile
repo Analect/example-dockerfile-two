@@ -1,6 +1,6 @@
-FROM andrewosh/binder-base
+FROM jupyter/notebook-minimal:4.1
 
-MAINTAINER Jeremy Freeman <freeman.jeremy@gmail.com>
+MAINTAINER Jupyter Project <jupyter@googlegroups.com>
 
 USER root
 
@@ -8,8 +8,8 @@ USER root
 RUN apt-get update
 RUN apt-get install -y graphviz
 
-USER main
-WORKDIR /home/main/
+USER jovyan
+WORKDIR /home/jovyan/
 
 # Install requirements for Python 2
 ADD requirements.txt requirements.txt
@@ -17,3 +17,5 @@ RUN pip install -r requirements.txt
 
 # Install requirements for Python 3
 RUN bash -c "source activate python3 && pip install -r requirements.txt"
+
+USER jovyan
